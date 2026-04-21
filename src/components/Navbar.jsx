@@ -1,16 +1,31 @@
-import '../components/Navbar.css';
+import { useState } from 'react';
+import '../components.css/Navbar.css';
+
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="navbar">
       <div className="navbar-container">
-        <h2 className="logo">Alejo.dev</h2>
+        
+        <h2 className="logo">Alejo-carmona</h2>
 
-        <nav>
-          <a href="#home">Inicio</a>
-          <a href="#about">Sobre mí</a>
-          <a href="#projects">Proyectos</a>
-          <a href="#contact">Contacto</a>
+        <nav className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <a href="#">Inicio</a>
+          <a href="#">Proyectos</a>
+          <a href="#">Skills</a>
+          <a href="#">Contacto</a>
         </nav>
+
+        <div 
+          className={`hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
       </div>
     </header>
   );
